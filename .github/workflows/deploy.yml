@@ -3,7 +3,6 @@ name: Deploy
 
 on:
   workflow_dispatch:
-  workflow_call:
     inputs:
       environment:
         description: 'A environment passed from the caller workflow'
