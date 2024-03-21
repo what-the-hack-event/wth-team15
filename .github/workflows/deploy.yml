@@ -18,11 +18,11 @@ jobs:
           creds: ${{ secrets.SP_DETAILS }}
 
       - name: Step 1
-        run: echo "az deployment group create --resource-group ${{ github.RESOURCE_GROUP }} --template-file ./InfrastructureAsCode/main.bicep"
+        run: echo "az deployment group create --resource-group ${{ vars.RESOURCE_GROUP }} --template-file ./InfrastructureAsCode/main.bicep"
 
       - name: Deploy to Azure
         uses: azure/CLI@v1
         with:
           azcliversion: 2.51.0
           inlineScript: |
-            az deployment group create --resource-group ${{ github.RESOURCE_GROUP }} --template-file ./InfrastructureAsCode/main.bicep
+            az deployment group create --resource-group ${{ vars.RESOURCE_GROUP }} --template-file ./InfrastructureAsCode/main.bicep
