@@ -1,5 +1,7 @@
 # What the Hack - DevOps with GitHub Hackathon - Team Repository
 
+comment
+
 <img src="https://octodex.github.com/images/socialite.jpg" height=300 width=300 alt="Octocats social image, depicting teamwork"></img>
 
 This will be your teams repository for the hackathon. 
