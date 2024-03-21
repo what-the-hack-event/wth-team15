@@ -22,4 +22,4 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            az deployment group create --resource-group ${{${{ github.RESOURCE_GROUP }}}} --template-file ./InfrastructureAsCode/main.bicep
+            az deployment group create --resource-group ${{ github.RESOURCE_GROUP }} --template-file ./InfrastructureAsCode/main.bicep
