@@ -2,7 +2,7 @@
 param environment string = 'dev'
 
 @description('Location of services')
-param location string = "eastus"
+param location string = 'eastus'
 
 var webAppName = '${uniqueString(resourceGroup().id)}-${environment}'
 var appServicePlanName = '${uniqueString(resourceGroup().id)}-wth-asp'
