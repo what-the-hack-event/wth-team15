@@ -14,9 +14,9 @@ jobs:
 
   job2:
     runs-on: ubuntu-latest
+    needs: job1
     steps:
       - name: Cowsay
         uses: actions/cowsay@v2
         with:
           text: "Moo"
-      - depends-on: job1
