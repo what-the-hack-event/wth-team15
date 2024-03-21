@@ -1,0 +1,25 @@
+# create a manual trigger
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+  #create job and login to azure
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.SP_DETAILS }}
+
+      - name: Deploy to Azure
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+            az deployment group create --resource-group ${{${{ github.RESOURCE_GROUP }}}} --template-file ./InfrastructureAsCode/main.bicep
