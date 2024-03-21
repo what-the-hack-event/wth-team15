@@ -3,13 +3,6 @@
 
 name: .NET
 
-env:
-  registryName: "t66gqzqisvzagwthreg.azurecr.io",
-  repositoryName: "wth/dotnetcoreapp",
-  dockerFolderPath: "Application/src/RazorPagesTestSample",
-  tag: "github.run_number"
-
-
 on:
   push:
     branches: [ "main" ]
@@ -19,6 +12,12 @@ on:
     branches: [ "main" ]
     paths:
       - 'Application/**'
+
+env:
+  registryName: "t66gqzqisvzagwthreg.azurecr.io",
+  repositoryName: "wth/dotnetcoreapp",
+  dockerFolderPath: "Application/src/RazorPagesTestSample",
+  tag: "github.run_number"
 
 jobs:
   build:
