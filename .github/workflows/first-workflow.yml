@@ -17,6 +17,6 @@ jobs:
     needs: job1
     steps:
       - name: Cowsay
-        uses: actions/cowsay@v2
+        uses: mscoutermarsh/cowsays-action@master
         with:
           text: "Moo"
