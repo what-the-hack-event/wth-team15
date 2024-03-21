@@ -5,12 +5,15 @@ on:
   issues:
     types: [opened]
 
+env:
+  MY_SECRET: "super_secret"
+
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1
-        run: echo "Step 1"
+        run: echo $MY_SECRET
       - name: Step 2
         run: echo "Step 2"
 
