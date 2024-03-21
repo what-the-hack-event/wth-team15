@@ -31,4 +31,4 @@ jobs:
         with:
           azcliversion: 2.51.0
           inlineScript: |
-            az deployment group create --resource-group ${{ vars.RESOURCE_GROUP }} --template-file ./InfrastructureAsCode/main.bicep --parameters environment=${{ github.event.inputs.environment }}
+            az deployment group create --resource-group ${{ vars.RESOURCE_GROUP }} --template-file ./InfrastructureAsCode/main.bicep --parameters environment=${{ inputs.environment }}
