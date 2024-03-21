@@ -3,8 +3,14 @@ name: Deploy
 
 on:
   workflow_dispatch:
-
-  #create job and login to azure
+  workflow_call:
+    inputs:
+      environment:
+        description: 'A environment passed from the caller workflow'
+        default: 'dev'
+        required: false
+        type: string
+        
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,4 +31,4 @@ jobs:
         with:
           azcliversion: 2.51.0
           inlineScript: |
-            az deployment group create --resource-group ${{ vars.RESOURCE_GROUP }} --template-file ./InfrastructureAsCode/main.bicep
+            az deployment group create --resource-group ${{ vars.RESOURCE_GROUP }} --template-file ./InfrastructureAsCode/main.bicep --parameters environment=${{ github.event.inputs.environment }}
