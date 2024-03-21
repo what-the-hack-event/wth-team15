@@ -53,3 +53,12 @@ jobs:
       run: |
         docker build ${{ env.dockerFolderPath }} -t ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.repositoryName }}:${{ env.tag }}
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.repositoryName }}:${{ env.tag }}
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.SP_DETAILS }}
+    - name: deploy to dev
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: 't66gqzqisvzag-dev'
+        images: '${{ secrets.ACR_LOGIN_SERVER }}/${{ env.repositoryName }}:${{ github.tag }}'
