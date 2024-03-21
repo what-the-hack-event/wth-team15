@@ -17,7 +17,7 @@ env:
   registryName: "t66gqzqisvzagwthreg.azurecr.io"
   repositoryName: "wth/dotnetcoreapp"
   dockerFolderPath: "Application/src/RazorPagesTestSample"
-  tag: "github.run_number"
+  tag: "${{ github.run_number }}"
 
 jobs:
   build:
